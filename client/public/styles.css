@@ -1,0 +1,21 @@
+body {
+    background-color: cornsilk;
+    text-align: center;
+}
+
+nav h1 {
+    background-color: darkcyan;
+}
+
+table,
+td {
+    border: solid #333;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
