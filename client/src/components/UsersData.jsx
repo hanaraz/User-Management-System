@@ -1,9 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const UsersData = () => {
+
+    const usersData = useSelector(state => state.users);
+    console.log(usersData);
+
     return (
         <div >
             <h1>Users</h1>
+
             <table>
                 <thead>
                     <th>Id</th>
@@ -14,19 +20,25 @@ const UsersData = () => {
                     <th>Action</th>
 
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>name</td>
-                        <td>email@gmail.com</td>
-                        <td>0512451133</td>
-                        <td>male</td>
-                        <td>
-                            <button>edit</button>
-                            <button>delete</button>
-                        </td>
-                    </tr>
-                </tbody>
+                {usersData.map(data => (
+                    
+                    <tbody key={data._id}>
+                        <tr>
+                            <td>{data._id}</td>
+                            <td>{data.name}</td>
+                            <td>{data.email}</td>
+                            <td>{data.phone}</td>
+                            <td>{data.gender}</td>
+                            <td>
+                                <button>edit</button>
+                                <button>delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                ))}
+
+
             </table>
         </div>
     )
