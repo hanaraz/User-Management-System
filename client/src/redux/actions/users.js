@@ -1,7 +1,11 @@
 import * as api from "../../api";
-import { FETCH } from "./actionTypes";
+import { FETCH } from "./actionTypes.js";
 
 export const getUserData = () => async(dispatch) => {
-    const { data } = await api.fetchUsers();
-    dispatch({ type: FETCH, payload: data });
+    try {
+        const { data } = await api.fetchUsers();
+        dispatch({ type: FETCH, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
 }

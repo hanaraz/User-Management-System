@@ -1,6 +1,6 @@
 import Home from "./components/Home";
 import UserForm from "./components/UserForm";
-import UsersData from "./components/UsersData";
+import Users from "./components/Users";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
@@ -14,7 +14,7 @@ function App() {
       <Routes >
         <Route exact path="/" element={<Home />} />
         <Route path="/form" element={<UserForm />} />
-        <Route path="/users" element={<UsersData />} />
+        <Route path="/users" element={<Users />} />
 
       </Routes>
 
