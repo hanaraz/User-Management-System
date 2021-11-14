@@ -1,3 +1,4 @@
+import React , {useState} from "react"
 import Home from "./components/Home";
 import UserForm from "./components/UserForm";
 import Users from "./components/Users";
@@ -6,6 +7,9 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+
+  const [currentId , setCurrentId] = useState(null);
+  
   return (
     <BrowserRouter>
       <Navbar />
@@ -13,8 +17,8 @@ function App() {
 
       <Routes >
         <Route exact path="/" element={<Home />} />
-        <Route path="/form" element={<UserForm />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/form" element={<UserForm currentId={currentId} setCurrentId={setCurrentId} />} />
+        <Route path="/users" element={<Users setCurrentId={setCurrentId} />} />
 
       </Routes>
 

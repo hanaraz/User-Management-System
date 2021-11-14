@@ -1,4 +1,4 @@
-import { CREATE, DELETE, FETCH } from "../actions/actionTypes.js";
+import { CREATE, DELETE, FETCH, UPDATE } from "../actions/actionTypes.js";
 
 const usersReducer = (users = [], action) => {
     switch (action.type) {
@@ -10,6 +10,9 @@ const usersReducer = (users = [], action) => {
 
         case DELETE:
             return users.filter(user => user._id !== action.payload);
+
+        case UPDATE:
+            return users.map(user => (user._id === action.payload._id) ? action.payload : user);
 
         default:
             return users;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserData } from '../redux/actions/users';
 import User from './User';
 
-const Users = () => {
+const Users = ({setCurrentId}) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -34,7 +34,7 @@ const Users = () => {
 
                 <tbody >
                     {usersData && usersData.map((data, index) => (
-                        <User data={data} index={index} key={data._id} />
+                        <User setCurrentId={setCurrentId} data={data} index={index} key={data._id} />
                     ))}
                 </tbody>
 

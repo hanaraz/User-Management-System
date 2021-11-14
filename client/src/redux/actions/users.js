@@ -1,5 +1,5 @@
 import * as api from "../../api";
-import { CREATE, DELETE, FETCH } from "./actionTypes.js";
+import { CREATE, DELETE, FETCH, UPDATE } from "./actionTypes.js";
 
 export const getUserData = () => async(dispatch) => {
     try {
@@ -23,6 +23,15 @@ export const removeUser = (id) => async(disatch) => {
     try {
         await api.deleteUser(id);
         disatch({ type: DELETE, payload: id });
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const updateUser = (id, user) => async(dispatch) => {
+    try {
+        const { data } = await api.updateUser(id, user);
+        dispatch({ type: UPDATE, payload: data })
     } catch (error) {
         console.log(error);
     }
