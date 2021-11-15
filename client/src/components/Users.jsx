@@ -1,47 +1,44 @@
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserData } from '../redux/actions/users';
 import User from './User';
 
-const Users = ({setCurrentId}) => {
+const Users = ({ setCurrentId }) => {
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getUserData());
     }, [dispatch])
 
-
-
     const usersData = useSelector(state => state.users);
-    console.log(usersData);
 
     return (
-        <div>
-            <h1>Users</h1>
+        <div className="container">
+            <div className="row">
+                <div className="col">
 
 
-            <table>
-                {/* <thead>
+                        <table className="table table-sm table-condensed">
+                            <thead>
+                                <tr>
+                                    <th scope="col" >#</th>
+                                    <th scope="col" >Name</th>
+                                    <th scope="col" >Email</th>
+                                    <th scope="col" >Phone</th>
+                                    <th scope="col"  >Gender</th>
+                                    <th scope="col"  >Action</th>
+                                </tr>
+                            </thead>
+                            <tbody >
+                                {usersData && usersData.map((data, index) => (
+                                    <User setCurrentId={setCurrentId} data={data} index={index} key={data._id} />
+                                ))}
+                            </tbody>
 
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Gender</th>
-                    <th>Action</th>
-
-                </thead> */}
-
-                <tbody >
-                    {usersData && usersData.map((data, index) => (
-                        <User setCurrentId={setCurrentId} data={data} index={index} key={data._id} />
-                    ))}
-                </tbody>
-
-            </table>
-
-        </div>
-
+                        </table>
+                    </div>
+                </div>
+            </div>
     )
 }
 

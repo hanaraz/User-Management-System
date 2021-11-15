@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { postUserData, updateUser } from "../redux/actions/users.js";
-import { useLocation } from 'react-router';
 
 const initialState = {
     name: "",
@@ -24,7 +23,7 @@ const UserForm = ({ currentId, setCurrentId }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUser({...user,[name]: value})
+        setUser({ ...user, [name]: value })
     }
 
     const handleClick = (e) => {
@@ -47,20 +46,24 @@ const UserForm = ({ currentId, setCurrentId }) => {
 
     return (
         <div>
-            <h1>{currentId ? 'Update' : 'Create'} User</h1>
-            <form onSubmit={handleClick}>
-                <input value={user.name} onChange={handleChange} type="text" name="name" placeholder="Your Name" /><br /><br />
-                <input value={user.email} onChange={handleChange} type="email" name="email" placeholder="Your Email" /><br /><br />
-                <input value={user.phone} onChange={handleChange} type="text" name="phone" placeholder="Your Phone" /><br /><br />
+            <h3>{currentId ? 'Update' : 'Create'} User</h3>
+                <form className="form" onSubmit={handleClick}>
+                    <input value={user.name} onChange={handleChange} type="text" name="name" placeholder="Your Name" /><br /><br />
+                    <input value={user.email} onChange={handleChange} type="email" name="email" placeholder="Your Email" /><br /><br />
+                    <input value={user.phone} onChange={handleChange} type="text" name="phone" placeholder="Your Phone" /><br /><br />
 
-                <input onChange={handleChange} type="radio" name="gender" value="male" />
-                <label>Male</label>
-                <input onChange={handleChange} type="radio" name="gender" value="female" />
-                <label>Female</label><br /><br />
-                {currentId && <button onClick={clear} type="submit">Cancel</button>}&nbsp;
+                    <input onChange={handleChange} type="radio" name="gender" value="M" />
+                    <label>Male</label>&nbsp;&nbsp;
+                    <input onChange={handleChange} type="radio" name="gender" value="F" />
+                    <label>Female</label><br /><br />
+                    {currentId && <button onClick={clear} type="submit"   className="btn btn-outline-dark btn-sm" >Cancel</button>}&nbsp;
 
-                <button type="submit">{currentId ? 'Update' : 'Create'}</button>
-            </form>
+                    <button type="submit" className="btn btn-dark btn-sm">{currentId ? 'Update' : 'Create'}</button>
+
+                </form>
+
+
+
 
         </div>
     )

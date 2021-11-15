@@ -1,21 +1,41 @@
-body {
-    background-color: cornsilk;
-    text-align: center;
-}
-
-nav h1 {
-    background-color: darkcyan;
-}
-
-table,
-td {
-    border: solid #333;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-thead,
-tfoot {
-    background-color: #333;
-    color: #fff;
-}
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background-color: cornsilk;
+        text-align: center;
+    }
+    
+    nav h1 {
+        background-color: rgb(20, 47, 73);
+        text-align: center;
+        padding: 1rem;
+        color: whitesmoke;
+    }
+    
+    h3 {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    button {
+        margin: 1rem;
+    }
+    
+    .side-bar {
+        float: left;
+        min-height: 100vh;
+        padding: 1rem;
+        font-size: large;
+    }
+    
+    .form {
+        margin: auto;
+        text-align: center;
+    }
+    
+    .table {
+        margin: 3rem;
+    }

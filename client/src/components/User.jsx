@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { removeUser, updateUser } from '../redux/actions/users.js';
+import { removeUser } from '../redux/actions/users.js';
 
 
-const User = ({data ,index ,setCurrentId}) => {
-    
+const User = ({ data, index, setCurrentId }) => {
+
     let navigate = useNavigate();
-    const  dispatch = useDispatch()
+    const dispatch = useDispatch()
 
 
     const deleteUser = () => {
@@ -22,17 +22,17 @@ const User = ({data ,index ,setCurrentId}) => {
 
     }
     return (
-            <tr>
-                <td>{index + 1}</td>
-                <td>{data.name}</td>
-                <td>{data.email}</td>
-                <td>{data.phone}</td>
-                <td>{data.gender}</td>
-                <td>
-                    <button onClick={editUser}>edit</button>
-                    <button onClick={deleteUser}>delete</button>
-                </td>
-            </tr>
+        <tr>
+            <th scope="row">{index + 1}</th>
+            <td>{data.name}</td>
+            <td>{data.email}</td>
+            <td>{data.phone}</td>
+            <td>{data.gender}</td>
+            <td>
+                <button onClick={editUser} className="btn btn-dark btn-sm">Edit</button>
+                <button onClick={deleteUser} className="btn btn-outline-dark btn-sm">Delete</button>
+            </td>
+        </tr>
     )
 }
 
